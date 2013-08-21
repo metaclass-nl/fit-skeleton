@@ -1,0 +1,17 @@
+{
+     "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/metaclass-nl/phpfit"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/metaclass-nl/fit-shelf"
+        }		
+    ],
+   "require": {
+        "metaclass-nl/phpfit": "*",
+		"metaclass-nl/fit-shelf": "*"
+    },
+	"minimum-stability": "dev"
+}
