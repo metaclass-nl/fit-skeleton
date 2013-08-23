@@ -59,7 +59,7 @@ USAGE
 
 4) From your own scripts:  
 
-    Take a look at run-web.php or run-cli.php and config/config.php. 
+   Take a look at run-web.php or run-cli.php and config/config.php. 
 
 
 DEVELOPING YOUR OWN TESTS AND FIXTURES
