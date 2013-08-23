@@ -54,9 +54,10 @@ USAGE
 	
       !define COMMAND_PATTERN {php /path/to/fit-skeleton/run-fitnesse.php [/path/to/fixtures]}  
 
-    Note: if you use the path/to/fixtures argument the default fixture paths will also be checked unless you remove them from config.config.php
+    Note: if you use the path/to/fixtures argument the default fixture paths will also be checked  
+    unless you remove them from config.config.php
 
-4) From your own scripts:
+4) From your own scripts:  
 
     Take a look at run-web.php or run-cli.php and config/config.php. 
 
@@ -67,7 +68,7 @@ DEVELOPING YOUR OWN TESTS AND FIXTURES
 You may add your own tests to the tests folder and your own fixtures to the fixtures folder.
  
 To load your own system under test classes you may autoload them, require_once them relative to the skeleton folder
-or require_once them relative to the fixture class file using __DIR__. 
+or require_once them relative to the fixture class file using &#95;&#95;DIR&#95;&#95;. 
 
 You may add more tests and fixtures folders in config/config.php. 
 
