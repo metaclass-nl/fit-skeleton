@@ -36,26 +36,23 @@ INSTALLATION
 USAGE
 -----
 
-1. From a Browser:
-
-	- Add an empty file named output.html to the skeleton folder and make it writable for PHP on your development server
-	  or edit config/config.php to point to a file that is writable for PHP on your development server,
-
-	- Enter the url to index.php in the skeleton folder on your development server into a browser
-   
-	- Click on one of the hyperlinks
+1. From a Browser: 
+   - Add an empty file named output.html to the skeleton folder and make it writable for PHP on your development server
+     or edit config/config.php to point to a file that is writable for PHP on your development server,  
+   - Enter the url to index.php in the skeleton folder on your development server into a browser  
+   - Click on one of the hyperlinks  
    
 2. From the CLI:
 
-	php run-cli.php path/to/input.html [path/to/output.html] [path/to/fixtures]
+	    php run-cli.php path/to/input.html [path/to/output.html] [path/to/fixtures]  
 	
 	Note: if you enter the path/to/fixtures argument the default fixture paths will also be checked unless you remove them from config.config.php
 
 3) From Fitnesse! (http://fitnesse.org/) (SCRIPT NOT TESTED)
 
-	put this in your wiki pages:
+   put this in your wiki pages:  
 	
-		!define COMMAND_PATTERN {php /path/to/fit-skeleton/run-fitnesse.php [/path/to/fixtures]}
+      !define COMMAND_PATTERN {php /path/to/fit-skeleton/run-fitnesse.php [/path/to/fixtures]}  
 
     Note: if you use the path/to/fixtures argument the default fixture paths will also be checked unless you remove them from config.config.php
 
