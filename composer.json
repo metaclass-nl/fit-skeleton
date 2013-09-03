@@ -6,7 +6,7 @@
         }	
     ],
    "require": {
-        "metaclass-nl/phpfit": ">=0.7.1",
+        "metaclass-nl/phpfit": "*",
 		"metaclass-nl/fit-shelf": ">=0.3"
     },
 	"minimum-stability": "dev"
