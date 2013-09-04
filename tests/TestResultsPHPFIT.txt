@@ -1,0 +1,25 @@
+Tests results using simpletest 1.1.0
+=========================================================
+On PHP 5.2.1
+
+FIT tests
+
+Fail: tests/ParseTest.php -> ParseTest -> testWhitespaceIsCondensed -> Equal expectation fails at character 1 with [Ã ] and [Ã] at [C:\metaclass\websites\andere\phpFit\tests\ParseTest.php line 173]
+Fail: tests/ParseTest.php -> ParseTest -> testWhitespaceIsCondensed -> Equal expectation fails at character 1 with [Ã  b] and [Ã b] at [C:\metaclass\websites\andere\phpFit\tests\ParseTest.php line 174]
+Fail: tests/ExampleTest.php -> ExampleTest -> testArithmeticExample -> Equal expectation fails at character 4365 with [...667 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />66.6666666667 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td> </tr> ...] and [...667 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />66.666666666667 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td> </tr> ...] at [C:\metaclass\websites\andere\phpFit\tests\ExampleTest.php line 22]
+Fail: tests/ExampleTest.php -> ExampleTest -> testArithmeticExampleWithStaticTypeDict -> Equal expectation fails at character 4383 with [...667 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />66.6666666667 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td> </tr> ...] and [...667 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />66.666666666667 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td> </tr> ...] at [C:\metaclass\websites\andere\phpFit\tests\ExampleTest.php line 22]
+Fail: tests/ExampleTest.php -> ExampleTest -> testCompensationExample -> Equal expectation fails at character 9078 with [...></p> <table BORDER CELLSPACING=0 CELLPADDING=3> <tr> <td COLSPAN="2">fit.Summary</td> </tr> <tr> <td> <span style="color:#808080;">counts</span></td> <td bgcolor="#cfffcf"> <span style="color...] and [...></p> <table BORDER CELLSPACING=0 CELLPADDING=3> <tr> <td COLSPAN="2">fit.Summary</td> </tr> <tr> <td> <span style="color:#808080;">counts</span></td> <td bgcolor="#cfffcf"> <span style="co...] at [C:\metaclass\websites\andere\phpFit\tests\ExampleTest.php line 22]
+
+7/7 test cases complete: 213 passes, 5 fails and 0 exceptions.
+
+=====================================================================================================
+On PHP 5.5.1
+
+FIT tests
+
+Fail: tests/ParseTest.php -> ParseTest -> testWhitespaceIsCondensed -> Equal expectation fails at character 1 with [Ã ] and [Ã] at [C:\metaclass\websites\andere\phpFit\tests\ParseTest.php line 173]
+Fail: tests/ParseTest.php -> ParseTest -> testWhitespaceIsCondensed -> Equal expectation fails at character 1 with [Ã  b] and [Ã b] at [C:\metaclass\websites\andere\phpFit\tests\ParseTest.php line 174]
+Fail: tests/ExampleTest.php -> ExampleTest -> testCompensationExample -> Equal expectation fails at character 9078 with [...></p> <table BORDER CELLSPACING=0 CELLPADDING=3> <tr> <td COLSPAN="2">fit.Summary</td> </tr> <tr> <td> <span style="color:#808080;">counts</span></td> <td bgcolor="#cfffcf"> <span style="color...] and [...></p> <table BORDER CELLSPACING=0 CELLPADDING=3> <tr> <td COLSPAN="2">fit.Summary</td> </tr> <tr> <td> <span style="color:#808080;">counts</span></td> <td bgcolor="#cfffcf"> <span style="co...] at [C:\metaclass\websites\andere\phpFit\tests\ExampleTest.php line 22]
+
+7/7 test cases complete: 215 passes, 3 fails and 0 exceptions.
+
