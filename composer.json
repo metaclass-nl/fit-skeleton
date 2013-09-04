@@ -6,7 +6,7 @@
         },	
         {
             "type": "vcs",
-            "url": "http://ontwikkeling/fit/fit-shelf"
+            "url": "file:///c:/metaclass/websites/fit/fit-shelf/.git"
         },
         {
             "packagist": false
