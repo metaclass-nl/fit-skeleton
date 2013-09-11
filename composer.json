@@ -3,18 +3,11 @@
         {
             "type": "vcs",
             "url": "https://github.com/metaclass-nl/phpfit"
-        },	
-        {
-            "type": "vcs",
-            "url": "c:/metaclass/websites/fit/fit-shelf"
-        },
-        {
-            "packagist": false
         }	
     ],
    "require": {
-        "metaclass-nl/phpfit": "*",
-		"metaclass-nl/fit-shelf": ">=0.3"
+        "metaclass-nl/phpfit": "dev-fixtureNameSpacedAutoLoading",
+		"metaclass-nl/fit-shelf": "dev-master"
     },
 	"minimum-stability": "dev"
 }

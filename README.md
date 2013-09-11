@@ -20,25 +20,29 @@ data, cause fatal errors and leave the system in an undefined state.
 INSTALLATION
 ------------
 
-1. If you want your own tests and fixtures under version control check out an empty working copy in your development environment
+1. If you want your own tests and fixtures under version control check out an empty working copy 
+   in your development environment
 
 2. Download this package as a zip file from Github (button at the bottom right) and extract its content. 
 
 3. Move the content of the resulting fit-skeleton folder into the working copy / your development environment
 
-4. Open a command shell (in windows use Git Bash) and change its current directory to the folder you just moved composer.json to (further called the skeleton folder).
+4. Open a command shell (in windows use Git Bash) and change its current directory to the folder you just moved 
+   composer.json to (further called the skeleton folder).
 
 5. Enter:  
 
 		php composer.phar install
   
+6. Add an empty file named output.html to the skeleton folder and make it writable for PHP on your  
+   development server or edit config/config.php to point to a file that is writable for PHP on your  
+   development server,  
+
 
 USAGE
 -----
 
 1. From a Browser: 
-   - Add an empty file named output.html to the skeleton folder and make it writable for PHP on your development server
-     or edit config/config.php to point to a file that is writable for PHP on your development server,  
    - Enter the url to index.php in the skeleton folder on your development server into a browser  
    - Click on one of the hyperlinks  
    
@@ -46,8 +50,6 @@ USAGE
 
 	    php run-cli.php path/to/input.html [path/to/output.html] [path/to/fixtures]  
 	
-	Note: if you enter the path/to/fixtures argument the default fixture paths will also be checked unless you remove them from config.config.php
-
 3) From Fitnesse! (http://fitnesse.org/) (SCRIPT NOT TESTED)
 
    put this in your wiki pages:  
@@ -65,54 +67,36 @@ USAGE
 DEVELOPING YOUR OWN TESTS AND FIXTURES
 --------------------------------------
 
-You may add your own tests to the tests folder and your own fixtures to the fixtures folder.
+You may add your own tests to the tests folder or to some other folder you add to $fitConfig->exampleDirs.
+
+You may add your fixtures and classes to folders you add to $fitConfig->nameSpacedMap for PSR-0 autoloading.
  
-To load your own system under test classes you may autoload them, require_once them relative to the skeleton folder
-or require_once them relative to the fixture class file using &#95;&#95;DIR&#95;&#95;. 
-
-You may add more tests and fixtures folders in config/config.php. 
-
-Currently autoloading fixtures through the PSR-0 autoloaders is not supported. You need to specify the fixtures folders in config.php.  
-
-
 DATA TYPES
 ----------
 Fit Shelf fixtures handle all data types as 'Mixed'. You may override this for your own fixtures 
 for specific properties and/or methods, see PHPFIT_TypeAdapter_PhpTolerant.
 
 Fit Shelf fixtures access properties as member variables. You may override this from your start fixture class 
-by first loading an other type adapter class and then call for example:
+by calling for example:
 
-	shelf_ClassHelper::adapterType('BeanTolerant');
+	fitshelf\ClassHelper::adapterType('BeanTolerant');
 	
-This will make all shelf fixtures use PHPFIT_TypeAdapter_BeanTolerant which will first try 
+This will make all fitshelf fixtures use PHPFIT_TypeAdapter_BeanTolerant which will first try 
 getter and setter methods for accessing properties.
 
 PHPFIT fixtures require you to specify datatypes for each fixture property and method that is
-used from test tables.  You can use PHPFIT_TypeAdapter_PhpTolerant, 
-just include PHPFIT_TypeAdapter_PhpTolerant explicitly:
-
-    require_once('PHPFIT_TypeAdapter_PhpTolerant.php');
-    
-and add a method getType to your fixture so that it is allways used:
-
-    class YourClass extends aPHPFIT_Fixture {
-        static function getType($classOrObject, $name, $property) {
-            return 'PhpTolerant';
-        }
-    }
-
+used from test tables.  See Special Feature 3 in the readme of [Fit Shelf](https://github.com/metaclass-nl/fit-shelf)
+for how to use Fit Shelfs type adaptors from PHPFIT fixtures.
 
 RELEASE NOTES
 -------------
 
-Making PHPFIT and Fit Shelf available under composer is a work in progress. 
+Composers depricated "include-path" configuration is used for PHPFIT.
+Classes from PHPFIT are not autoloaded, you need to require_once them explicitly.
 
-Currently composers depricated "include-path" configuration is used for both PHPFIT and Fit Shelf.
-
-Class loading and name spacing of Fit Shelf will be adapted to PSR-0 name spacing and class loading.
-This requires a reorganization of the folder structure and locations of the classes, 
-and therefore will break existing code.  
+This version and Fit Shelf has been adapted to PSR-0 name spacing and class autoloading.
+This required a reorganization of the folder structure and locations of the classes, 
+and therefore may have broken existing code that runned on previous versions of Fit Shelf.  
 
 Also see the readme's of [PHPFIT](https://github.com/metaclass-nl/phpfit) and [Fit Shelf](https://github.com/metaclass-nl/fit-shelf).
 

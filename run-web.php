@@ -1,14 +1,13 @@
 <?php
-//to test: enter url in your browser to run-web.php?input_filename=vendor/metaclass-nl/phpfit/examples/input/arithmetic.html
+$loader = require 'vendor/autoload.php';
 
+require_once 'PHPFIT.php';
 require('config/config.php');
 
-require_once 'vendor/autoload.php';
-require_once 'PHPFIT.php';
-require_once 'PHPFIT/FixtureLoader.php';
-forEach($fitConfig->fixtureDirs as $eachDir) 
+//add additional namespaces from config to Composers ClassLoader
+forEach($fitConfig->nameSpacedMap as $prefix => $path)
 {
-	PHPFIT_FixtureLoader::addFixturesDirectory($eachDir);
+    $loader->add($prefix, (array) $path);
 }
 
 if(!isset($_GET['input_filename'])) {

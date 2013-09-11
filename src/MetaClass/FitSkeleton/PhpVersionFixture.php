@@ -1,5 +1,7 @@
 <?php
-require_once('DoFixture.php'); //includes fit.Fixture
+namespace MetaClass\FitSkeleton;
+
+use fitshelf\DoFixture;
 
 /*
  * tests/PhpVersion.html
