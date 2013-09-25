@@ -6,8 +6,8 @@
         }	
     ],
    "require": {
-        "metaclass-nl/phpfit": "dev-fixtureNameSpacedAutoLoading",
-		"metaclass-nl/fit-shelf": "dev-master"
+        "metaclass-nl/phpfit": "dev-master",
+		"metaclass-nl/fit-shelf": ">=0.4"
     },
 	"minimum-stability": "dev"
 }
