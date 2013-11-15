@@ -1,0 +1,1092 @@
+PHPUnit 3.7.27 by Sebastian Bergmann.
+
+.............FFFFF.......................F.....
+
+Time: 0 seconds, Memory: 13.50Mb
+
+There were 6 failures:
+
+1) ExampleTest::testArithmeticExample
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+ '<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+ <html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="Ward Cunningham">
+    <meta name="GENERATOR" content="Mozilla/4.5 [en]C-CCK-MCD compaq  (Win98; U) [Netscape]">
+    <title>Arithmetic</title>
+ </head>
+ <body>
+ 
+ <h1>
+ Integer Arithmetic</h1>
+ 
+ <p>The computer relies on arithmetic. Here we test a variety of arithmetic
+ operations expressed as 32 bit two's complement binary numbers (Java's
+ int).
+ <br>&nbsp;
+ <table BORDER COLS=6 CELLSPACING=0 CELLPADDING=3 >
+ <tr>
+ <td COLSPAN="6">eg.ArithmeticFixture</td>
+ </tr>
+ 
+ <tr>
+ <td>x</td>
+ 
+ <td>y</td>
+ 
+ <td>+</td>
+ 
+ <td>-</td>
+ 
+ <td>*</td>
+ 
+ <td>/</td>
+ </tr>
+ 
+ <tr>
+ <td>0</td>
+ 
+ <td>0</td>
+ 
+ <td bgcolor="#cfffcf">0</td>
+ 
+ <td bgcolor="#cfffcf">0</td>
+ 
+ <td bgcolor="#cfffcf">0</td>
+ 
+ <td bgcolor="#ffffcf">0: ArithmeticException: / by zero</td>
+ </tr>
+ 
+ 
+ <tr>
+ <td>1</td>
+ 
+ <td>2</td>
+ 
+ <td bgcolor="#cfffcf">3</td>
+ 
+ <td bgcolor="#cfffcf">-1</td>
+ 
+ <td bgcolor="#cfffcf">2</td>
+ 
+ <td bgcolor="#ffffcf">0.5: ArithmeticException: invalid value for integer</td>
+ </tr>
+ 
+ <tr>
+ <td>1</td>
+ 
+ <td>-1</td>
+ 
+ <td bgcolor="#cfffcf">0</td>
+ 
+ <td bgcolor="#cfffcf">2</td>
+ 
+ <td bgcolor="#cfffcf">-1</td>
+ 
+ <td bgcolor="#cfffcf">-1</td>
+ </tr>
+ 
+ <tr>
+ <td>10000</td>
+ 
+ <td>10000</td>
+ 
+ <td bgcolor="#cfffcf">20000</td>
+ 
+ <td bgcolor="#cfffcf">0</td>
+ 
+ <td bgcolor="#cfffcf">100000000</td>
+ 
+ <td bgcolor="#cfffcf">1</td>
+ </tr>
+ 
+ </table>
+ 
+ <br><br>
+ Now we try something similar using automatic type conversion offered by ColumnFixtures (BFL1).
+ <br><br>
+ 
+ <table BORDER CELLSPACING=0 CELLPADDING=3>
+     <tr>
+         <td colspan=5>eg.ArithmeticColumnFixture</td>
+     </tr>
+     <tr>
+         <td>x</td>
+         <td>y</td>
+         <td>plus()</td>
+         <td>times()</td>
+         <td>divide()</td>
+         <td>floating()</td>
+     </tr>
+     <tr>
+         <td>2</td>
+         <td>3</td>
+         <td bgcolor="#cfffcf">5</td>
+         <td bgcolor="#cfffcf">6</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td bgcolor="#cfffcf">0.666666666667</td>
+     </tr>
+     <tr>
+         <td>0</td>
+         <td>0</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td bgcolor="#cfffcf">error</td>
+         <td bgcolor="#cfffcf">error</td>
+     </tr>
+     <tr>
+         <td>0</td>
+         <td>0</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td> <span style="color:#808080;">error</span></td>
+         <td> <span style="color:#808080;">error</span></td>
+     </tr>
+     <tr>
+         <td>200</td>
+         <td>300</td>
+         <td bgcolor="#cfffcf">500</td>
+         <td bgcolor="#cfffcf">60000</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td bgcolor="#cfffcf">0.666666666667</td>
+     </tr>
+     <tr>
+         <td>2</td>
+         <td>3</td>
+         <td bgcolor="#ffcfcf">10 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />5 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+         <td bgcolor="#ffcfcf">10 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />6 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+         <td bgcolor="#ffcfcf">10 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />0 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+     </tr>
+     <tr>
+         <td>200</td>
+         <td>3</td>
+         <td bgcolor="#ffcfcf">5 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />203 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+         <td bgcolor="#ffcfcf">6 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />600 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+         <td bgcolor="#ffcfcf">0 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />66 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+         <td bgcolor="#ffcfcf">0.6666667 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />66.666666666667 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+     </tr>
+     <tr>
+         <td>2</td>
+         <td>-3</td>
+         <td bgcolor="#cfffcf">-1</td>
+         <td bgcolor="#cfffcf">-6</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td bgcolor="#cfffcf">-0.666666666667</td>
+     </tr>
+ </table>
+ 
+ <br><br>
+ 
+ 
+ <table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr>
+ <td COLSPAN="2">fit.Summary</td>
+ </tr>
+ <tr>
+ <td> <span style="color:#808080;">counts</span></td>
+ <td bgcolor="#ffcfcf"> <span style="color:#808080;">32 right, 7 wrong, 0 ignored, 2 exceptions</span></td></tr></table>
+ 
+ 
+ 
+ <p>Document prepaired by Ward Cunningham
+ <br>First Version July 11, 2002
+ <br>Last Update August 17, 2002
+ </body>
+ </html>
+ '
+
+C:\metaclass\websites\fit\phpfit\tests\UnitTestCase.php:36
+C:\metaclass\websites\fit\phpfit\tests\ExampleTest.php:22
+
+2) ExampleTest::testArithmeticExampleWithStaticTypeDict
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+ '<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+ <html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="Ward Cunningham">
+    <meta name="GENERATOR" content="Mozilla/4.5 [en]C-CCK-MCD compaq  (Win98; U) [Netscape]">
+    <title>Arithmetic</title>
+ </head>
+ <body>
+ 
+ <h1>
+ Integer Arithmetic</h1>
+ 
+ <p>The computer relies on arithmetic. Here we test a variety of arithmetic
+ operations expressed as 32 bit two's complement binary numbers (Java's
+ int).
+ <br>&nbsp;
+ <table BORDER COLS=6 CELLSPACING=0 CELLPADDING=3 >
+ <tr>
+ <td COLSPAN="6">eg.ArithmeticFixture</td>
+ </tr>
+ 
+ <tr>
+ <td>x</td>
+ 
+ <td>y</td>
+ 
+ <td>+</td>
+ 
+ <td>-</td>
+ 
+ <td>*</td>
+ 
+ <td>/</td>
+ </tr>
+ 
+ <tr>
+ <td>0</td>
+ 
+ <td>0</td>
+ 
+ <td bgcolor="#cfffcf">0</td>
+ 
+ <td bgcolor="#cfffcf">0</td>
+ 
+ <td bgcolor="#cfffcf">0</td>
+ 
+ <td bgcolor="#ffffcf">0: ArithmeticException: / by zero</td>
+ </tr>
+ 
+ 
+ <tr>
+ <td>1</td>
+ 
+ <td>2</td>
+ 
+ <td bgcolor="#cfffcf">3</td>
+ 
+ <td bgcolor="#cfffcf">-1</td>
+ 
+ <td bgcolor="#cfffcf">2</td>
+ 
+ <td bgcolor="#ffffcf">0.5: ArithmeticException: invalid value for integer</td>
+ </tr>
+ 
+ <tr>
+ <td>1</td>
+ 
+ <td>-1</td>
+ 
+ <td bgcolor="#cfffcf">0</td>
+ 
+ <td bgcolor="#cfffcf">2</td>
+ 
+ <td bgcolor="#cfffcf">-1</td>
+ 
+ <td bgcolor="#cfffcf">-1</td>
+ </tr>
+ 
+ <tr>
+ <td>10000</td>
+ 
+ <td>10000</td>
+ 
+ <td bgcolor="#cfffcf">20000</td>
+ 
+ <td bgcolor="#cfffcf">0</td>
+ 
+ <td bgcolor="#cfffcf">100000000</td>
+ 
+ <td bgcolor="#cfffcf">1</td>
+ </tr>
+ 
+ </table>
+ 
+ <br><br>
+ Now we try something similar using automatic type conversion offered by ColumnFixtures (BFL1).
+ <br><br>
+ 
+ <table BORDER CELLSPACING=0 CELLPADDING=3>
+     <tr>
+         <td colspan=5>eg.ArithmeticColumnFixtureWithStaticTypeDict</td>
+     </tr>
+     <tr>
+         <td>x</td>
+         <td>y</td>
+         <td>plus()</td>
+         <td>times()</td>
+         <td>divide()</td>
+         <td>floating()</td>
+     </tr>
+     <tr>
+         <td>2</td>
+         <td>3</td>
+         <td bgcolor="#cfffcf">5</td>
+         <td bgcolor="#cfffcf">6</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td bgcolor="#cfffcf">0.666666666667</td>
+     </tr>
+     <tr>
+         <td>0</td>
+         <td>0</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td bgcolor="#cfffcf">error</td>
+         <td bgcolor="#cfffcf">error</td>
+     </tr>
+     <tr>
+         <td>0</td>
+         <td>0</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td> <span style="color:#808080;">error</span></td>
+         <td> <span style="color:#808080;">error</span></td>
+     </tr>
+     <tr>
+         <td>200</td>
+         <td>300</td>
+         <td bgcolor="#cfffcf">500</td>
+         <td bgcolor="#cfffcf">60000</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td bgcolor="#cfffcf">0.666666666667</td>
+     </tr>
+     <tr>
+         <td>2</td>
+         <td>3</td>
+         <td bgcolor="#ffcfcf">10 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />5 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+         <td bgcolor="#ffcfcf">10 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />6 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+         <td bgcolor="#ffcfcf">10 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />0 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+     </tr>
+     <tr>
+         <td>200</td>
+         <td>3</td>
+         <td bgcolor="#ffcfcf">5 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />203 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+         <td bgcolor="#ffcfcf">6 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />600 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+         <td bgcolor="#ffcfcf">0 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />66 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+         <td bgcolor="#ffcfcf">0.6666667 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />66.666666666667 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td>
+     </tr>
+     <tr>
+         <td>2</td>
+         <td>-3</td>
+         <td bgcolor="#cfffcf">-1</td>
+         <td bgcolor="#cfffcf">-6</td>
+         <td bgcolor="#cfffcf">0</td>
+         <td bgcolor="#cfffcf">-0.666666666667</td>
+     </tr>
+ </table>
+ 
+ <br><br>
+ 
+ 
+ <table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr>
+ <td COLSPAN="2">fit.Summary</td>
+ </tr>
+ <tr>
+ <td> <span style="color:#808080;">counts</span></td>
+ <td bgcolor="#ffcfcf"> <span style="color:#808080;">32 right, 7 wrong, 0 ignored, 2 exceptions</span></td></tr></table>
+ 
+ 
+ 
+ <p>Document prepaired by Ward Cunningham
+ <br>First Version July 11, 2002
+ <br>Last Update August 17, 2002
+ </body>
+ </html>
+ '
+
+C:\metaclass\websites\fit\phpfit\tests\UnitTestCase.php:36
+C:\metaclass\websites\fit\phpfit\tests\ExampleTest.php:22
+
+3) ExampleTest::testCompensationExample
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+ '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+ <HTML>
+ <HEAD>
+ 	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+ 	<TITLE></TITLE>
+ 	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.129  (Linux)">
+ 	<META NAME="CREATED" CONTENT="20051220;12173900">
+ 	<META NAME="CHANGED" CONTENT="20051220;18092800">
+ 	<STYLE>
+ 	<!--
+ 		@page { size: 8.5in 11in; margin: 0.79in }
+ 		TD P { margin-bottom: 0in }
+ 		TH P { margin-bottom: 0in; font-style: italic }
+ 		P { margin-bottom: 0.08in }
+ 	-->
+ 	</STYLE>
+ </HEAD>
+ <BODY LANG="es-ES" DIR="LTR">
+ <P><B><FONT SIZE=4>Compensaci&oacute;n de Empleados B&aacute;sica</FONT></B></P>
+ <P STYLE="font-weight: medium">Por cada semana, cada empleado recibe
+ su pago calculado con el Salario por hora standard durante las
+ primeras 40 horas, 1.5 veces el Salario por hora para las horas que
+ superen 40, y 2 veces el Salario por hora por cada hora trabajada los
+ domingos &oacute; en vacaciones.</P>
+ <TABLE WIDTH=649 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
+ 	<COL WIDTH=192>
+ 	<COL WIDTH=126>
+ 	<COL WIDTH=127>
+ 	<COL WIDTH=102>
+ 	<COL WIDTH=60>
+ 	<THEAD>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=192>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>eg.WeeklyCompensation</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=126>
+ 				<P><BR>
+ 				</P>
+ 			</TD>
+ 			<TD WIDTH=127>
+ 				<P><BR>
+ 				</P>
+ 			</TD>
+ 			<TD WIDTH=102>
+ 				<P><BR>
+ 				</P>
+ 			</TD>
+ 			<TD WIDTH=60>
+ 				<P><BR>
+ 				</P>
+ 			</TD>
+ 		</TR>
+ 	</THEAD>
+ 	<TBODY>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=192>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>SalarioHora</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=126>
+ 				<P><A NAME="DDE_LINK2"></A><FONT FACE="FreeSans"><FONT SIZE=3>VacacionesHoras</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=127>
+ 				<P><A NAME="DDE_LINK3"></A><FONT FACE="FreeSans"><FONT SIZE=3>StandardHoras</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=102>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>TotalHoras()</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=60>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>Pago()</FONT></FONT></P>
+ 			</TD>
+ 		</TR>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=192>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>20</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=126>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>0</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=127>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>20</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=102 bgcolor="#cfffcf">
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>20</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=60 bgcolor="#cfffcf">
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>400</FONT></FONT></P>
+ 			</TD>
+ 		</TR>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=192>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>20</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=126>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>0</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=127>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>40</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=102 bgcolor="#cfffcf">
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>40</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=60 bgcolor="#cfffcf">
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>800</FONT></FONT></P>
+ 			</TD>
+ 		</TR>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=192>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>20</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=126>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>0</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=127>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>45</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=102 bgcolor="#cfffcf">
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>45</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=60 bgcolor="#cfffcf">
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>950</FONT></FONT></P>
+ 			</TD>
+ 		</TR>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=192>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>20</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=126>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>8</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=127>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>48</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=102 bgcolor="#cfffcf">
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>56</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=60 bgcolor="#cfffcf">
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>1360</FONT></FONT></P>
+ 			</TD>
+ 		</TR>
+ 	</TBODY>
+ </TABLE>
+ <P STYLE="margin-bottom: 0in">Las horas de vacaciones no cuentan como
+ horas extras cuando pasan las 40 horas.</P>
+ <TABLE WIDTH=665 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
+ 	<COL WIDTH=192>
+ 	<COL WIDTH=129>
+ 	<COL WIDTH=124>
+ 	<COL WIDTH=102>
+ 	<COL WIDTH=76>
+ 	<THEAD>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=192>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>eg.WeeklyCompensation</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=129>
+ 				<P><BR>
+ 				</P>
+ 			</TD>
+ 			<TD WIDTH=124>
+ 				<P><BR>
+ 				</P>
+ 			</TD>
+ 			<TD WIDTH=102>
+ 				<P><BR>
+ 				</P>
+ 			</TD>
+ 			<TD WIDTH=76>
+ 				<P><BR>
+ 				</P>
+ 			</TD>
+ 		</TR>
+ 	</THEAD>
+ 	<TBODY>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=192>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>SalarioHora</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=129>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>VacacionesHoras</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=124>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>StandardHoras</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=102>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>TotalHoras()</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=76>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>Pago()</FONT></FONT></P>
+ 			</TD>
+ 		</TR>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=192>
+ 				<P>20</P>
+ 			</TD>
+ 			<TD WIDTH=129>
+ 				<P>8</P>
+ 			</TD>
+ 			<TD WIDTH=124>
+ 				<P>40</P>
+ 			</TD>
+ 			<TD WIDTH=102 bgcolor="#cfffcf">
+ 				<P>48</P>
+ 			</TD>
+ 			<TD WIDTH=76 bgcolor="#cfffcf">
+ 				<P>1120</P>
+ 			</TD>
+ 		</TR>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=192>
+ 				<P>20</P>
+ 			</TD>
+ 			<TD WIDTH=129>
+ 				<P>48</P>
+ 			</TD>
+ 			<TD WIDTH=124>
+ 				<P>0</P>
+ 			</TD>
+ 			<TD WIDTH=102 bgcolor="#cfffcf">
+ 				<P>48</P>
+ 			</TD>
+ 			<TD WIDTH=76 bgcolor="#cfffcf">
+ 				<P>1920</P>
+ 			</TD>
+ 		</TR>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=192>
+ 				<P>20</P>
+ 			</TD>
+ 			<TD WIDTH=129>
+ 				<P>50</P>
+ 			</TD>
+ 			<TD WIDTH=124>
+ 				<P>50</P>
+ 			</TD>
+ 			<TD WIDTH=102 bgcolor="#cfffcf">
+ 				<P>100</P>
+ 			</TD>
+ 			<TD WIDTH=76 bgcolor="#cfffcf">
+ 				<P>3100</P>
+ 			</TD>
+ 		</TR>
+ 	</TBODY>
+ </TABLE>
+ <P STYLE="margin-bottom: 0in">El sistema no va a permitir pagos
+ negativos. Un salario de $0 &oacute; cero horas trabajadas son
+ aceptables.</P>
+ <TABLE WIDTH=665 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
+ 	<COL WIDTH=190>
+ 	<COL WIDTH=131>
+ 	<COL WIDTH=124>
+ 	<COL WIDTH=100>
+ 	<COL WIDTH=78>
+ 	<THEAD>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=190>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>eg.WeeklyCompensation</FONT></FONT></P>
+ 			</TD>
+ 			<TH WIDTH=131>
+ 				<P><BR>
+ 				</P>
+ 			</TH>
+ 			<TH WIDTH=124>
+ 				<P><BR>
+ 				</P>
+ 			</TH>
+ 			<TH WIDTH=100>
+ 				<P><BR>
+ 				</P>
+ 			</TH>
+ 			<TH WIDTH=78>
+ 				<P><BR>
+ 				</P>
+ 			</TH>
+ 		</TR>
+ 	</THEAD>
+ 	<TBODY>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=190>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>SalarioHora</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=131>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>VacacionesHoras</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=124>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>StandardHoras</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=100>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>TotalHoras()</FONT></FONT></P>
+ 			</TD>
+ 			<TD WIDTH=78>
+ 				<P><FONT FACE="FreeSans"><FONT SIZE=3>Pago()</FONT></FONT></P>
+ 			</TD>
+ 		</TR>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=190>
+ 				<P>0</P>
+ 			</TD>
+ 			<TD WIDTH=131>
+ 				<P>0</P>
+ 			</TD>
+ 			<TD WIDTH=124>
+ 				<P>0</P>
+ 			</TD>
+ 			<TD WIDTH=100 bgcolor="#cfffcf">
+ 				<P>0</P>
+ 			</TD>
+ 			<TD WIDTH=78 bgcolor="#cfffcf">
+ 				<P>0</P>
+ 			</TD>
+ 		</TR>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=190>
+ 				<P>20</P>
+ 			</TD>
+ 			<TD WIDTH=131>
+ 				<P>0</P>
+ 			</TD>
+ 			<TD WIDTH=124>
+ 				<P>0</P>
+ 			</TD>
+ 			<TD WIDTH=100 bgcolor="#cfffcf">
+ 				<P>0</P>
+ 			</TD>
+ 			<TD WIDTH=78 bgcolor="#cfffcf">
+ 				<P>0</P>
+ 			</TD>
+ 		</TR>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=190>
+ 				<P>0</P>
+ 			</TD>
+ 			<TD WIDTH=131>
+ 				<P>0</P>
+ 			</TD>
+ 			<TD WIDTH=124>
+ 				<P>40</P>
+ 			</TD>
+ 			<TD WIDTH=100 bgcolor="#cfffcf">
+ 				<P>40</P>
+ 			</TD>
+ 			<TD WIDTH=78 bgcolor="#cfffcf">
+ 				<P>0</P>
+ 			</TD>
+ 		</TR>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=190>
+ 				<P>20</P>
+ 			</TD>
+ 			<TD WIDTH=131>
+ 				<P>0</P>
+ 			</TD>
+ 			<TD WIDTH=124>
+ 				<P>-40</P>
+ 			</TD>
+ 			<TD WIDTH=100 bgcolor="#cfffcf">
+ 				<P>error</P>
+ 			</TD>
+ 			<TD WIDTH=78 bgcolor="#cfffcf">
+ 				<P>error</P>
+ 			</TD>
+ 		</TR>
+ 		<TR VALIGN=TOP>
+ 			<TD WIDTH=190>
+ 				<P>-20</P>
+ 			</TD>
+ 			<TD WIDTH=131>
+ 				<P>0</P>
+ 			</TD>
+ 			<TD WIDTH=124>
+ 				<P>40</P>
+ 			</TD>
+ 			<TD WIDTH=100 bgcolor="#cfffcf">
+ 				<P>error</P>
+ 			</TD>
+ 			<TD WIDTH=78 bgcolor="#cfffcf">
+ 				<P>error</P>
+ 			</TD>
+ 		</TR>
+ 	</TBODY>
+ </TABLE>
+ 
+ <p></p>
+ <table BORDER CELLSPACING=0 CELLPADDING=3>
+ 	<tr>
+ 		<td COLSPAN="2">fit.Summary</td>
+ 	</tr>
+ <tr>
+ <td> <span style="color:#808080;">counts</span></td>
+ <td bgcolor="#cfffcf"> <span style="color:#808080;">24 right, 0 wrong, 0 ignored, 0 exceptions</span></td></tr></table>
+ 
+ <P STYLE="margin-bottom: 0in"><BR>
+ </P>
+ </BODY>
+ </HTML>
+ '
+
+C:\metaclass\websites\fit\phpfit\tests\UnitTestCase.php:36
+C:\metaclass\websites\fit\phpfit\tests\ExampleTest.php:22
+
+4) ExampleTest::testCalculatorExample
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+ '<html>
+ <head>
+ 	<title>Wiki: Calculator Example</title>
+ <head>
+ <body bgcolor=#FFFFFF link=#d06040 vlink=#806040>
+ 	<h1>Calculator Example</h1>
+ 	<wiki>The HP-35 was HP's first pocket calculator. It was introduced at a time when most calculators had only the four basic functions. The HP-35 was the first pocket calculator with transcendental functions, and the first with RPN. 
+ <p>The following specifications have been derived from the instructions printed on the back of the calculator. (Image from <a href="//www.hpmuseum.org/hp35.htm">http://www.hpmuseum.org/hp35.htm</a>.)
+ <p><img src="files/hp35bk.jpg">
+ <p><p>Low battery lights all decimal points.
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=3>eg.Calculator</td></tr>
+ <tr><td>volts</td><td>watts()</td><td>points()</td></tr>
+ <tr><td>3.75</td><td bgcolor="#cfffcf">.500</td><td bgcolor="#cfffcf">false</td></tr>
+ <tr><td>3.60</td><td bgcolor="#cfffcf">.500</td><td bgcolor="#cfffcf">false</td></tr>
+ <tr><td>3.45</td><td bgcolor="#cfffcf">.500</td><td bgcolor="#cfffcf">false</td></tr>
+ <tr><td>3.30</td><td bgcolor="#cfffcf">.500</td><td bgcolor="#ffcfcf">true <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />false <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td></tr>
+ </table>
+ <p>Improper operations flash display. Press <strong>clx</strong>.
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=3>eg.Calculator</td></tr>
+ <tr><td>key</td><td>x()</td><td>flash()</td></tr>
+ <tr><td>100</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">false</td></tr>
+ <tr><td>enter</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">false</td></tr>
+ <tr><td>0</td><td bgcolor="#cfffcf">0</td><td bgcolor="#cfffcf">false</td></tr>
+ <tr><td>/</td><td bgcolor="#ffcfcf">0 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />100 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td><td bgcolor="#ffcfcf">true <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />false <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td></tr>
+ <tr><td>clx</td><td bgcolor="#cfffcf">0</td><td bgcolor="#cfffcf">false</td></tr>
+ </table>
+ <p><strong>clx</strong> clears the display.
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=5>eg.Calculator</td></tr>
+ <tr><td>key</td><td>x()</td><td>y()</td><td>z()</td><td>t()</td></tr>
+ <tr><td>100</td><td bgcolor="#cfffcf">100</td><td>&nbsp; <span style="color:#808080;">0</span></td><td>&nbsp; <span style="color:#808080;">0</span></td><td>&nbsp; <span style="color:#808080;">0</span></td></tr>
+ <tr><td>enter</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td><td>&nbsp; <span style="color:#808080;">0</span></td><td>&nbsp; <span style="color:#808080;">0</span></td></tr>
+ <tr><td>enter</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td><td>&nbsp; <span style="color:#808080;">0</span></td></tr>
+ <tr><td>enter</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td></tr>
+ <tr><td>clx</td><td bgcolor="#cfffcf">0</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td></tr>
+ </table>
+ <p><strong>clr</strong> clears all registers.
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=5>eg.Calculator</td></tr>
+ <tr><td>key</td><td>x()</td><td>y()</td><td>z()</td><td>t()</td></tr>
+ <tr><td>100</td><td bgcolor="#cfffcf">100</td><td>&nbsp; <span style="color:#808080;">0</span></td><td>&nbsp; <span style="color:#808080;">0</span></td><td>&nbsp; <span style="color:#808080;">0</span></td></tr>
+ <tr><td>enter</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td><td>&nbsp; <span style="color:#808080;">0</span></td><td>&nbsp; <span style="color:#808080;">0</span></td></tr>
+ <tr><td>enter</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td><td>&nbsp; <span style="color:#808080;">0</span></td></tr>
+ <tr><td>enter</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td></tr>
+ <tr><td>clr</td><td bgcolor="#cfffcf">0</td><td bgcolor="#cfffcf">0</td><td bgcolor="#cfffcf">0</td><td bgcolor="#cfffcf">0</td></tr>
+ </table>
+ <p><strong>chs</strong> changes sign of display. May be used as the first entry when entering negative numbers.
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=3>eg.Calculator</td></tr>
+ <tr><td>key</td><td>x()</td><td>y()</td></tr>
+ <tr><td>100</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">0</td></tr>
+ <tr><td>chs</td><td bgcolor="#cfffcf">-100</td><td bgcolor="#cfffcf">0</td></tr>
+ <tr><td>chs</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">0</td></tr>
+ <tr><td>enter</td><td bgcolor="#cfffcf">100</td><td bgcolor="#cfffcf">100</td></tr>
+ <tr><td>chs</td><td bgcolor="#ffcfcf">-0 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />-100 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td><td bgcolor="#cfffcf">100</td></tr>
+ <tr><td>100</td><td bgcolor="#ffcfcf">-100 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />100 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td><td bgcolor="#ffcfcf">100 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />-100 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td></tr>
+ </table>
+ <p><strong>eex</strong> causes next entries to become the exponent of x. For negative expoinents <strong>chs</strong> must precede digits.
+ <p>The operational stack consistes of four registers (x, y, z and t). A fifth register (s) is used for constant storage.
+ <p>The stack is automatically raised by an entry into x or by <strong>rcl</strong> unless the entry or <strong>rcl</strong> immediately follows <strong>clx</strong>, <strong>sto</strong> or <strong>enter</strong>.
+ <p>Follwing any trig function z is duplicated into register t.
+ <p>All angles are in degrees.
+ <p>Example (2+3) * (4/5) / sin(30) * (4^-1.5) = 1.0000
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=3> eg.Calculator </td></tr>
+ <tr><td>key</td><td>x()</td><td>y()</td></tr>
+ <tr><td>2</td><td bgcolor="#cfffcf">2</td><td>&nbsp; <span style="color:#808080;">0</span></td></tr>
+ <tr><td>enter</td><td bgcolor="#cfffcf">2</td><td bgcolor="#cfffcf">2</td></tr>
+ <tr><td>3</td><td bgcolor="#cfffcf">3</td><td bgcolor="#cfffcf">2</td></tr>
+ <tr><td>+</td><td bgcolor="#cfffcf">5</td><td>&nbsp; <span style="color:#808080;">2</span></td></tr>
+ <tr><td>4</td><td bgcolor="#cfffcf">4</td><td bgcolor="#cfffcf">5</td></tr>
+ <tr><td>*</td><td bgcolor="#cfffcf">20</td><td>&nbsp; <span style="color:#808080;">2</span></td></tr>
+ <tr><td>5</td><td bgcolor="#cfffcf">5</td><td bgcolor="#cfffcf">20</td></tr>
+ <tr><td>/</td><td bgcolor="#cfffcf">4</td><td>&nbsp; <span style="color:#808080;">2</span></td></tr>
+ <tr><td>30</td><td bgcolor="#cfffcf">30</td><td bgcolor="#cfffcf">4</td></tr>
+ <tr><td>sin</td><td bgcolor="#cfffcf">.5</td><td bgcolor="#cfffcf">4</td></tr>
+ <tr><td>/</td><td bgcolor="#ffcfcf">6 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />8 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td><td>&nbsp; <span style="color:#808080;">2</span></td></tr>
+ <tr><td>-1.5</td><td bgcolor="#cfffcf">-1.5</td><td bgcolor="#cfffcf">8</td></tr>
+ <tr><td>enter</td><td bgcolor="#cfffcf">-1.5</td><td bgcolor="#cfffcf">-1.5</td></tr>
+ <tr><td>4</td><td bgcolor="#cfffcf">4</td><td bgcolor="#cfffcf">-1.5</td></tr>
+ <tr><td>x^y</td><td bgcolor="#cfffcf">.125</td><td bgcolor="#ffcfcf">8 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />-1.5 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td></tr>
+ <tr><td>*</td><td bgcolor="#ffcfcf">1.0000 <span style="color:#c08080;font-style:italic;font-size:small;">expected</span><hr />-0.1875 <span style="color:#c08080;font-style:italic;font-size:small;">actual</span></td><td>&nbsp; <span style="color:#808080;">8</span></td></tr>
+ </table>
+ <p><hr>
+ <table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td>fit.Summary</td></tr>
+ <tr>
+ <td> <span style="color:#808080;">counts</span></td>
+ <td bgcolor="#ffcfcf"> <span style="color:#808080;">75 right, 9 wrong, 0 ignored, 0 exceptions</span></td></tr></table>
+ <hr>
+ <p>You can run this document as it stands right now against a calculator implemented at c2.com using the RunScript below. You will find that that the tests, the fixture and the calculator code are all not yet complete. Failing tests turn a cell red. There are two values in the cell. The top one is the expected result. The bottom is the actual result. 
+ <p><UL>
+ <li> <a href="run.cgi">http:run.cgi</a> -- invoke on c2.com and view results here
+ <li> <a href="hp35.cgi">http:hp35.cgi</a> -- model constrained generated test data
+ <li> <a href="Release/Source/eg/Calculator.java">http:Release/Source/eg/Calculator.java</a> -- the HP35 calculator and its fixture
+ <p></UL>
+ <hr>
+ <p>I'd like to see a manual interface to this calculator. It would provide keys and a display of the x value, just like a regular calculator. Doing this would point out some interesting differences between the programming and manual interfaces. One issue i'm curious about would be that keys would be digits, not complete numbers. So some mechanism would need to be created to convert. A manual interface would help to illustrate the concept of how you can test by going under the GUI. This is a hard concept for testers to understand.
+ <p>I have some comments on the perl hp35 simulator. I'm realizing that they'd be easier to make if i could cite tests. But that is hard, because they are random. Thus my first suggestion: Random tests should log the seed they used to generate them. And the script should be able to take a seed as an argument to regenerate the same test. This is a general rule for random tests, that i didn't get around to including in LessonsLearned. And, this would allow me to create a URL to a specific instance of a randomly generated test -- which would help me make my next suggestion.
+ <p>Second suggestion. Many of the tests using the hp35 simulator fail because of differences in precision. I would think that you'd want your fixture to be able to accept differences beyond a certain precision. Perhaps by setting a tolerance or something. Any tester who reported a bug simply because the implementation was calculating to a different level of precision than the oracle would be dismissed as wasting people's time. The fixtures need to have more sensitivity here. -- Oh i see i see that you (claim to) have addressed this in ScientificPrecision. Then why am i still seeing these problems?
+ <p>Hey. I'm seeing something strange with the calculator model. I generate a test (more) and then run it (run). And the test that is run is NOT THE SAME as the test that i just generated. This might be easier to track down if i could specify seeds.
+ <p>-- BretPettichord
+ <p><p><p></wiki>
+ <hr>
+ 	Last edited November 23, 2002
+ </body>
+ </html>
+ 
+ '
+
+C:\metaclass\websites\fit\phpfit\tests\UnitTestCase.php:36
+C:\metaclass\websites\fit\phpfit\tests\ExampleTest.php:22
+
+5) ExampleTest::testMusicExample
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+ '<html>
+ <head>
+ 	<title>Wiki: Music Example</title>
+ <head>
+ <body bgcolor=#FFFFFF link=#d06040 vlink=#806040>
+ 	<h1>Music Example</h1>
+ 	<wiki>In this example we describe a music player as if we were operating it. We will see two kinds of tables in use, action and row. The action tables list things actions to be performed, step-by-step, one row at a time. Some actions will involve searching for music. We will check to be sure we've found the right music using a second kind of table, a row table. In the row table we will simply list each song, one per row, with columns showing different attributes of each song. We'll use these fixtures.
+ <p>We'll write the remainder of this page as if it were describing stories for the music library/player. We'll use italics when we want to point out features of the framework. You might as well run the example now before you continue reading.
+ <p><UL>
+ <li> <a href="run.cgi">http:run.cgi</a>
+ <p></UL>
+ This is our most realistic example short of the SampleApplications. See the MusicExampleObjectModel to understand all of the objects in play here.
+ <p><hr>
+ <p><strong>Browsing Music</strong>
+ <p>The music browser starts up looking at the whole library of songs. We specify the library (an advanced feature) so that we know what we are talking about in this document.
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=3> fit.Action </td></tr>
+ <tr><td> start </td><td> eg.music.Browser </td><td>&nbsp;</td></tr>
+ <tr><td> enter </td><td> library </td><td> eg/music/Music.txt </td></tr>
+ <tr><td> check </td><td> total songs </td><td bgcolor="#cfffcf"> 37 </td></tr>
+ </table>
+ <p><em>This is a the file that library reads. It is tab separated text. Try downloading it and looking at it with a spreadsheet. <a href="Release/Source/eg/music/Music.txt">http:Release/Source/eg/music/Music.txt</a></em>
+ <p>We can pick songs and see details of our selection as we go.
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=3> fit.Action </td></tr>
+ <tr><td> enter </td><td> select </td><td> 1 </td></tr>
+ <tr><td> check </td><td> title </td><td bgcolor="#cfffcf"> Akila </td></tr>
+ <tr><td> check </td><td> artist </td><td bgcolor="#cfffcf"> Toure Kunda </td></tr>
+ <tr><td> enter </td><td> select </td><td> 2 </td></tr>
+ <tr><td> check </td><td> title </td><td bgcolor="#cfffcf"> American Tango </td></tr>
+ <tr><td> check </td><td> artist </td><td bgcolor="#cfffcf"> Weather Report </td></tr>
+ <tr><td> check </td><td> album </td><td bgcolor="#cfffcf"> Mysterious Traveller </td></tr>
+ <tr><td> check </td><td> year </td><td bgcolor="#cfffcf"> 1974 </td></tr>
+ <tr><td> check </td><td> time </td><td bgcolor="#cfffcf"> 3.70 </td></tr>
+ <tr><td> check </td><td> track </td><td bgcolor="#cfffcf"> 2 of 7 </td></tr>
+ </table>
+ <p><em>ActionFixture interprets the words in the first column. The actions operate on fields and buttons on the </em>Browser<em> screen we started in the first table. The Browser (or what ever other Fixtures we start) interprets the names in the second column. Each name maps to a method of the Browser. The third column provides data that are pass as arguments to Browser methods or compared with Browser method results. See MusicExampleWithErrors to see how errors are reported.</em>
+ <p><hr>
+ <p><strong>Playing Music</strong>
+ <p>Once we've picked a song, we can play it. We can continue operating the Brower while music is playing. Since this sequence is long, we'll explain what we are doing in an unused column.
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=4> eg.music.Realtime </td></tr>
+ <tr><td> press </td><td> play </td><td>&nbsp;</td><td> play this song </td></tr>
+ <tr><td> check </td><td> status </td><td bgcolor="#cfffcf"> loading </td><td>&nbsp;</td></tr>
+ <tr><td> pause </td><td> 2 </td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td> check </td><td> status </td><td bgcolor="#cfffcf"> loading </td><td> watch it load </td></tr>
+ <tr><td> pause </td><td> 2 </td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td> check </td><td> status </td><td bgcolor="#cfffcf"> playing </td><td>&nbsp;</td></tr>
+ <tr><td> check </td><td> playing </td><td bgcolor="#cfffcf"> American Tango </td><td>&nbsp;</td></tr>
+ <tr><td> check </td><td> time </td><td bgcolor="#cfffcf"> 3.70 </td><td>&nbsp;</td></tr>
+ <tr><td> press </td><td> pause </td><td>&nbsp;</td><td> make it stop </td></tr>
+ <tr><td> check </td><td> status </td><td bgcolor="#cfffcf"> pause </td><td>&nbsp;</td></tr>
+ <tr><td> check </td><td> remaining </td><td bgcolor="#cfffcf"> 3.66 </td><td>&nbsp;</td></tr>
+ <tr><td> pause </td><td> 60 </td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td> check </td><td> remaining </td><td bgcolor="#cfffcf"> 3.66 </td><td>&nbsp;</td></tr>
+ <tr><td> press </td><td> play </td><td>&nbsp;</td><td> make it go </td></tr>
+ <tr><td> check </td><td> status </td><td bgcolor="#cfffcf"> playing </td><td>&nbsp;</td></tr>
+ <tr><td> pause </td><td> 60 </td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td> check </td><td> remaining </td><td bgcolor="#cfffcf"> 2.66 </td><td>&nbsp;</td></tr>
+ <tr><td> await </td><td> play complete </td><td>&nbsp;</td><td> enjoy the music </td></tr>
+ <tr><td> check </td><td> status </td><td bgcolor="#cfffcf"> ready </td><td>&nbsp;</td></tr>
+ <tr><td> enter </td><td> select </td><td> 4 </td><td> try another </td></tr>
+ <tr><td> press </td><td> play </td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td> pause </td><td> 1 </td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td> fail </td><td> load jam </td><td>&nbsp;</td><td> uh oh </td></tr>
+ <tr><td> check </td><td> message </td><td bgcolor="#cfffcf"> load jamed </td><td>&nbsp;</td></tr>
+ <tr><td> press </td><td> ok </td><td>&nbsp;</td><td> dispatch the notifier </td></tr>
+ <tr><td> check </td><td> status </td><td bgcolor="#cfffcf"> ready </td><td>&nbsp;</td></tr>
+ </table>
+ <p><p><em>This table is interpreted by Realtime, a Fixture that adds actions having to do with realtime operation of the music player. This fixture calls on a simulator to keep track of system events. We do so here only because the application we are testing isn't a real music player. Our toy application cooperates with the simulator to keep track of time. A real player would do things that take real time and it would use the computer's realtime clock to keep track of time. We could still use a fixture with actions like </em>pause<em> and </em>await<em> but there wouldn't need to be a simulator too.</em>
+ <p><hr>
+ <p><strong>Searching for Music</strong>
+ <p>There are buttons on the browser to find more songs like the one we have picked.
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=4> eg.music.Realtime </td></tr>
+ <tr><td> enter </td><td> select </td><td> 2 </td><td> pick an album </td></tr>
+ <tr><td> press </td><td> same album </td><td>&nbsp;</td><td> find more like it </td></tr>
+ <tr><td> check </td><td> status </td><td bgcolor="#cfffcf"> searching </td><td>&nbsp;</td></tr>
+ <tr><td> await </td><td> search complete </td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td> check </td><td> status </td><td bgcolor="#cfffcf"> ready </td><td>&nbsp;</td></tr>
+ <tr><td> check </td><td> selected songs </td><td bgcolor="#cfffcf"> 2 </td><td>&nbsp;</td></tr>
+ </table>
+ <p><em>Our searches take a few seconds to complete. Eventually we will want to try mashing buttons faster than the computer can respond. For now we will be polite and </em>await<em> completion of our searches.</em>
+ <p>The selected songs are displayed in a table.
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=6> eg.music.Display </td></tr>
+ <tr><td> title </td><td> artist </td><td> album </td><td> year </td><td> time() </td><td> track() </td></tr>
+ <tr><td bgcolor="#cfffcf"> Scarlet Woman </td><td bgcolor="#cfffcf"> Weather Report </td><td bgcolor="#cfffcf"> Mysterious Traveller </td><td bgcolor="#cfffcf"> 1974 </td><td bgcolor="#cfffcf"> 5.72 </td><td bgcolor="#cfffcf"> 6 of 7 </td></tr>
+ <tr><td bgcolor="#cfffcf"> American Tango </td><td bgcolor="#cfffcf"> Weather Report </td><td bgcolor="#cfffcf"> Mysterious Traveller </td><td bgcolor="#cfffcf"> 1974 </td><td bgcolor="#cfffcf">3.70 </td><td bgcolor="#cfffcf"> 2 of 7 </td></tr>
+ </table>
+ <p><em>Here we use Display (a RowFixture) to directly examine the Music object found by our search. Things like </em>artist<em> and </em>track()<em> are fields and methods of the domain objects.</em>
+ <p>We can find songs related in different ways. Each new way produces a (possibly) different list of songs. <em>Show all</em> restores the display to the initial conditions.
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=4> eg.music.Realtime </td></tr>
+ <tr><td> press </td><td> show all </td><td>&nbsp;</td><td> recall all the songs </td></tr>
+ <tr><td> await </td><td> search complete </td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td> check </td><td> selected songs </td><td bgcolor="#cfffcf"> 37 </td><td>&nbsp;</td></tr>
+ <tr><td> enter </td><td> select </td><td> 3 </td><td> pick a James Taylor song</td></tr>
+ <tr><td> check </td><td> artist </td><td bgcolor="#cfffcf"> James Taylor </td><td>&nbsp;</td></tr>
+ <tr><td> press </td><td> same artist </td><td>&nbsp;</td><td> find more by him </td></tr>
+ <tr><td> await </td><td> search complete </td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td> check </td><td> selected songs </td><td bgcolor="#cfffcf"> 5 </td><td>&nbsp;</td></tr>
+ </table>
+ <p>Yielding the display:
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=6> eg.music.Display </td></tr>
+ <tr><td> title </td><td> artist </td><td> album </td><td> year </td><td> time() </td><td> track() </td></tr>
+ <tr><td bgcolor="#cfffcf"> Handy Man </td><td bgcolor="#cfffcf"> James Taylor </td><td bgcolor="#cfffcf"> JT </td><td bgcolor="#cfffcf"> 1977 </td><td bgcolor="#cfffcf"> 3.30 </td><td bgcolor="#cfffcf"> 7 of 12 </td></tr>
+ <tr><td bgcolor="#cfffcf"> Sailing To Philadelphia </td><td bgcolor="#cfffcf"> James Taylor </td><td bgcolor="#cfffcf"> October Rose </td><td bgcolor="#cfffcf"> 2001 </td><td bgcolor="#cfffcf"> 5.47 </td><td bgcolor="#cfffcf"> 3 of 3 </td></tr>
+ <tr><td bgcolor="#cfffcf"> Ananas </td><td bgcolor="#cfffcf"> James Taylor </td><td bgcolor="#cfffcf"> Hourglass </td><td bgcolor="#cfffcf"> 1997 </td><td bgcolor="#cfffcf"> 5.73 </td><td bgcolor="#cfffcf"> 5 of 13 </td></tr>
+ <tr><td bgcolor="#cfffcf"> Another Grey Morning </td><td bgcolor="#cfffcf"> James Taylor </td><td bgcolor="#cfffcf"> JT </td><td bgcolor="#cfffcf"> 1977 </td><td bgcolor="#cfffcf"> 2.73 </td><td bgcolor="#cfffcf"> 4 of 12 </td></tr>
+ <tr><td bgcolor="#cfffcf"> Copperline </td><td bgcolor="#cfffcf"> James Taylor </td><td bgcolor="#cfffcf"> New Moon Shine </td><td bgcolor="#cfffcf"> 1991 </td><td bgcolor="#cfffcf"> 4.37</td><td bgcolor="#cfffcf"> 1 of 12 </td></tr>
+ </table>
+ <p><em>Domain objects typically have lots more fields and methods than we can conveniently look at in a single table. We compose a table specific to our needs by choosing column headings of interest. Here is another look at the results of the previous search.</em>
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=6> eg.music.Display </td></tr>
+ <tr><td> title </td><td> album </td><td> genre </td><td> size </td><td> date </td></tr>
+ <tr><td bgcolor="#cfffcf"> Another Grey Morning </td><td bgcolor="#cfffcf"> JT </td><td bgcolor="#cfffcf"> Pop </td><td bgcolor="#cfffcf"> 3284199 </td><td bgcolor="#cfffcf"> 9/7/02 11:32 PM </td></tr>
+ <tr><td bgcolor="#cfffcf"> Ananas </td><td bgcolor="#cfffcf"> Hourglass </td><td bgcolor="#cfffcf"> Pop </td><td bgcolor="#cfffcf"> 6897450 </td><td bgcolor="#cfffcf"> 9/7/02 11:47 PM </td></tr>
+ <tr><td bgcolor="#cfffcf"> Copperline </td><td bgcolor="#cfffcf"> New Moon Shine </td><td bgcolor="#cfffcf"> Pop </td><td bgcolor="#cfffcf"> 5248087 </td><td bgcolor="#cfffcf"> 9/7/02 9:52 PM </td></tr>
+ <tr><td bgcolor="#cfffcf"> Handy Man </td><td bgcolor="#cfffcf"> JT </td><td bgcolor="#cfffcf"> Pop </td><td bgcolor="#cfffcf"> 3976956 </td><td bgcolor="#cfffcf"> 9/7/02 11:36 PM </td></tr>
+ <tr><td bgcolor="#cfffcf"> Sailing To Philadelphia </td><td bgcolor="#cfffcf"> October Rose </td><td bgcolor="#cfffcf"> Pop </td><td bgcolor="#cfffcf"> 6581911 </td><td bgcolor="#cfffcf"> 9/7/02 10:45 PM </td></tr>
+ </table>
+ <p><em>Notice that the songs in the two tables are not in the same order. That is because we didn't type the tables in the same order, and the order we type is preserved. RowFixture(s) use the left hand columns to line up the search results with the table values.  Check out MusicExampleWithErrors to see how this works when the rows don't match up.</em>
+ <p><em>The kaffe jvm/library has trouble with date formatting so you may see errors when running this from wiki.</em>
+ <p><em>This completes the MusicExample.</em>
+ <p><hr>
+ <p>We've run quite a few test. We'll call up one more Fixture that will add a summary to the end of our document.
+ <p><table BORDER CELLSPACING=0 CELLPADDING=3>
+ <tr><td ColSpan=2> fit.Summary </td></tr>
+ <tr>
+ <td> <span style="color:#808080;">counts</span></td>
+ <td bgcolor="#cfffcf"> <span style="color:#808080;">95 right, 0 wrong, 0 ignored, 0 exceptions</span></td></tr></table>
+ <p><hr>
+ <p>This is our most complete standard example. You can run it against more than one fit implementation by choosing any one of these specialized RunScript.
+ <p><UL>
+ <li> <a href="files/LispPlatform/runScheme.cgi">http:files/LispPlatform/runScheme.cgi</a>
+ <li> <a href="files/LispPlatform/runLisp.cgi">http:files/LispPlatform/runLisp.cgi</a>
+ <p></UL>
+ (Caution: these scripts can't login. Run them from the public wiki pages.)</wiki>
+ <hr>
+ 	Last edited May 28, 2003
+ </body>
+ </html>
+ 
+ '
+
+C:\metaclass\websites\fit\phpfit\tests\UnitTestCase.php:36
+C:\metaclass\websites\fit\phpfit\tests\ExampleTest.php:22
+
+6) ParseTest::testWhitespaceIsCondensed
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+-'Ã '
++'Ã'
+
+C:\metaclass\websites\fit\phpfit\tests\UnitTestCase.php:36
+C:\metaclass\websites\fit\phpfit\tests\ParseTest.php:173
+
+FAILURES!
+Tests: 47, Assertions: 217, Failures: 6.
