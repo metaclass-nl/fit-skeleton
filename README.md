@@ -94,7 +94,7 @@ RELEASE NOTES
 Composers depricated "include-path" configuration is used for PHPFIT.
 Classes from PHPFIT are not autoloaded, you need to require_once them explicitly.
 
-This version and Fit Shelf has been adapted to PSR-0 name spacing and class autoloading.
+This version and Fit Shelf have been adapted to PSR-0 name spacing and class autoloading.
 This required a reorganization of the folder structure and locations of the classes, 
 and therefore may have broken existing code that runned on previous versions of Fit Shelf.  
 

@@ -3,11 +3,11 @@
         {
             "type": "vcs",
             "url": "https://github.com/metaclass-nl/phpfit"
-        }	
+        }
     ],
    "require": {
         "metaclass-nl/phpfit": "dev-master",
-		"metaclass-nl/fit-shelf": ">=0.4"
+		"metaclass-nl/fit-shelf": ">=0.5" 
     },
 	"minimum-stability": "dev"
 }

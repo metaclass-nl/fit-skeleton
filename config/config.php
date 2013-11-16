@@ -2,7 +2,7 @@
 $fitConfig = new StdClass();
 
 $fitConfig->exampleDirs["Skeleton"] = "tests";
-$fitConfig->exampleDirs["Fit Shelf"] = "vendor/metaclass-nl/fit-shelf/examples/tests";
+$fitConfig->exampleDirs["Fit Shelf"] = "vendor/metaclass-nl/fit-shelf/examples/input";
 $fitConfig->exampleDirs["PHPFIT"] = "vendor/metaclass-nl/phpfit/examples/input";
 //add your own input folders here
 
@@ -14,7 +14,7 @@ $fitConfig->nameSpacedMap = array(
     //'yourNameSpace' => 'yourDirectoryPath'  
     );
 
-//may add relative paths from the run scripts to your own fixtures folders 
+//You may add relative paths from the run scripts to your own fixtures folders 
 //if (class_exists('Composer\Autoload\ClassLoader')) {
 //    PHPFIT_FixtureLoader::addFixturesDirectory('src/fixtures');
 //}
