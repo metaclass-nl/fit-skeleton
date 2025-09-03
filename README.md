@@ -1,3 +1,5 @@
+This repositry is no longer mainained.
+
 Fit Skeleton package 
 ====================
 
